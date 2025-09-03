@@ -1,5 +1,7 @@
 {
   "hello": "আসসালামু আলাইকুম",
-  "selectLanguage":"Select Language bn"
+  "selectLanguage":"Select Language bn",
+  "version": "Version bn"
+
 
 }

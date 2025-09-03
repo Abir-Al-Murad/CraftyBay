@@ -2,6 +2,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:ostadecommerce/app/app_colors.dart';
+import 'package:ostadecommerce/app/app_theme.dart';
 import 'package:ostadecommerce/app/controller/language_controller.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ostadecommerce/l10n/app_localizations.dart';
@@ -35,6 +37,9 @@ class _CraftyBayState extends State<CraftyBay> {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: languageController.supportedLocales,
+          theme: AppTheme.lightThemeData,
+          darkTheme: AppTheme.darkThemeData,
+          themeMode: ThemeMode.light,  //default themeMode,,,app e button diye ekate change kore theme control kora hoy
           locale: languageController.currentLocale, //kontak enable rakhte chan sheta
           navigatorObservers: [observer],
           home: SplashScreen(),

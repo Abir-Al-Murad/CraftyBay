@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ostadecommerce/app/app.dart';
+import 'package:ostadecommerce/app/utils/app_version_service.dart';
 import 'package:ostadecommerce/firebase_options.dart';
 
 //Application er age setup dite hobe-->
@@ -28,5 +29,8 @@ void main()async{
     FirebaseCrashlytics.instance.recordError(error, stack,fatal: true);
     return true;
   };
+
+  AppVersionService.getCurrentAppVersion();
+
   runApp(const CraftyBay());
 }
