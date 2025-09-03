@@ -18,8 +18,11 @@ void main()async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
+
   //Pass all uncaught fatal errors from the framework to crashlytics
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError; // Flutter jeta generate kore
+
+
   //Pass all uncaught asynchronous errors that aren't handled by the flutter framework to crashlytics
   PlatformDispatcher.instance.onError = (error,stack){  // ami nije generate koir
     FirebaseCrashlytics.instance.recordError(error, stack,fatal: true);
