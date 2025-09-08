@@ -4,18 +4,18 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for Bengali Bangla (`bn`).
+class AppLocalizationsBn extends AppLocalizations {
+  AppLocalizationsBn([String locale = 'bn']) : super(locale);
 
   @override
-  String get hello => 'hello';
+  String get hello => 'আসসালামু আলাইকুম';
 
   @override
-  String get selectLanguage => 'Select Language';
+  String get selectLanguage => 'Select Language bn';
 
   @override
-  String get version => 'Version';
+  String get version => 'Version bn';
 
   @override
   String get welcomeBack => 'Welcome Back';

@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
 import 'package:ostadecommerce/app/app_theme.dart';
 import 'package:ostadecommerce/app/controller/language_controller.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ostadecommerce/l10n/app_localizations.dart';
 
@@ -43,6 +45,19 @@ class _CraftyBayState extends State<CraftyBay> {
           locale: languageController.currentLocale, //kontak enable rakhte chan sheta
           navigatorObservers: [observer],
           home: SplashScreen(),
+          initialRoute: SplashScreen.name,
+          onGenerateRoute: (settings){
+            late Widget screen;
+            if(settings.name == SplashScreen.name){
+              screen = SplashScreen();
+            }else if(settings.name == SignInScreen.name){
+              screen = SignInScreen();
+            }else if(settings.name == SignUpScreen.name){
+              screen = SignUpScreen();
+            }
+
+            return MaterialPageRoute(builder: (ctx)=>screen);
+          },
         );
       }
     );

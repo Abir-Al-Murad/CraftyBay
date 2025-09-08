@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ostadecommerce/app/assests_paths.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
 import 'package:ostadecommerce/app/utils/app_version_service.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:ostadecommerce/features/auth/presentation/widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  static const String name = '/';
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    _movetoNextScreen();
+    super.initState();
+  }
+
+  Future<void> _movetoNextScreen()async{
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacementNamed(context, SignInScreen.name);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             // ),
             // LanguageChangeSwitch(),
             Spacer(flex: 2,),
-            SvgPicture.asset('assets/images/logo.svg',width: 120,),
+            AppLogo(),
             Spacer(flex: 1,),
             CircularProgressIndicator(),
             SizedBox(height: 25,),
@@ -37,3 +51,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+

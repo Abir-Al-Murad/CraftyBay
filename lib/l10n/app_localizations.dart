@@ -115,6 +115,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Version'**
   String get version;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back'**
+  String get welcomeBack;
+
+  /// No description provided for @loginHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email and password'**
+  String get loginHeadline;
+
+  /// No description provided for @signUpHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your details for new account'**
+  String get signUpHeadline;
+
+  /// No description provided for @createNewAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create new account'**
+  String get createNewAccount;
 }
 
 class _AppLocalizationsDelegate

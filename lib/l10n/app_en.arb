@@ -2,5 +2,9 @@
 {
   "hello": "hello",
   "selectLanguage":"Select Language",
-  "version": "Version"
+  "version": "Version",
+  "welcomeBack": "Welcome Back",
+  "loginHeadline": "Please enter your email and password",
+  "signUpHeadline": "Please enter your details for new account",
+  "createNewAccount": "Create new account"
 }
