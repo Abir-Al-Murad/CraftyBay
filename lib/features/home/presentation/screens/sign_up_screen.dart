@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
-import 'package:ostadecommerce/features/auth/presentation/widgets/app_logo.dart';
+import 'package:ostadecommerce/features/home/presentation/screens/verify_otp.dart';
+import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -91,7 +92,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _onTapSignUpButton(){}
+  void _onTapSignUpButton(){
+    Navigator.pushNamed(context, VerifyOtpScreen.name);
+  }
   void _onTapBackToLoginButton(){
     Navigator.pop(context);
   }

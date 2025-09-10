@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
 import 'package:ostadecommerce/app/utils/app_version_service.dart';
-import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:ostadecommerce/features/auth/presentation/widgets/app_logo.dart';
+import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
+import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _movetoNextScreen()async{
     await Future.delayed(Duration(seconds: 3));
-    Navigator.pushReplacementNamed(context, SignInScreen.name);
+    Navigator.pushReplacementNamed(context, BottomNavHolder.name);
   }
 
   @override
