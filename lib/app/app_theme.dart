@@ -11,7 +11,15 @@ class AppTheme {
         fontSize: 28,
         fontWeight: FontWeight.bold,
 
-      )
+      ),titleMedium: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w500,
+
+
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      titleTextStyle: TextStyle(fontSize: 18,color: Colors.black)
     )
   );
 

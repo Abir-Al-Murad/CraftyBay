@@ -6,7 +6,7 @@ import 'package:ostadecommerce/app/app_theme.dart';
 import 'package:ostadecommerce/app/controller/language_controller.dart';
 import 'package:ostadecommerce/app/controller_binder.dart';
 import 'package:ostadecommerce/app/routes.dart';
-import 'package:ostadecommerce/features/home/presentation/screens/splash_screen.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ostadecommerce/l10n/app_localizations.dart';
 
 class CraftyBay extends StatefulWidget {

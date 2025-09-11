@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ostadecommerce/features/category/presentation/screens/category_list_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/screens/home_screen.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
 
@@ -16,7 +17,7 @@ class _BottomNavHolderState extends State<BottomNavHolder> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    HomeScreen(),
+    CategoryListScreen(),
     HomeScreen(),
     HomeScreen(),
   ];

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ostadecommerce/features/home/presentation/screens/sign_in_screen.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 

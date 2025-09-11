@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
-import 'package:ostadecommerce/features/home/presentation/screens/verify_otp.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/verify_otp.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
 
 class SignUpScreen extends StatefulWidget {
