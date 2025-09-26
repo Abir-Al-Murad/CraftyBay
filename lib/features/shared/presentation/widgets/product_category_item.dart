@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
+import 'package:ostadecommerce/features/products/product_list_screen.dart';
 
 class ProductCategoryItem extends StatelessWidget {
   const ProductCategoryItem({
@@ -8,19 +9,24 @@ class ProductCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 4,
-      children: [
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: AppColors.themeColor.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(8)
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, ProductListScreen.name,arguments: "Electronic");
+      },
+      child: Column(
+        spacing: 4,
+        children: [
+          Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                color: AppColors.themeColor.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(8)
+            ),
+            child: Icon(Icons.computer,size: 32,color: AppColors.themeColor,),
           ),
-          child: Icon(Icons.computer,size: 32,color: AppColors.themeColor,),
-        ),
-        Text("Electronics",style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppColors.themeColor),),
-      ],
+          Text("Electronics",style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppColors.themeColor),),
+        ],
+      ),
     );
   }
 }

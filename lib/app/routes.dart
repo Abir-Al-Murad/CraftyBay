@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
+import 'package:ostadecommerce/features/home/presentation/screens/wish_list.dart';
+import 'package:ostadecommerce/features/products/product_list_screen.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 
 import '../features/auth/presentation/screens/sign_in_screen.dart';
@@ -18,6 +20,11 @@ MaterialPageRoute onGenerateRoute(RouteSettings settings){
     screen = VerifyOtpScreen();
   }else if(settings.name == BottomNavHolder.name){
     screen = BottomNavHolder();
+  }else if(settings.name == ProductListScreen.name){
+    final String category = settings.arguments as String;
+    screen = ProductListScreen(categoryName: category);
+  }else if(settings.name == WishListScreen.name){
+    screen = WishListScreen();
   }
 
   return MaterialPageRoute(builder: (ctx)=>screen);

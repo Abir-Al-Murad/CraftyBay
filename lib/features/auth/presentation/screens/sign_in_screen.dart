@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart' show AppLogo;
