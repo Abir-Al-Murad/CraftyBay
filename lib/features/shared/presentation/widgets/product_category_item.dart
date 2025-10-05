@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
-import 'package:ostadecommerce/features/products/product_list_screen.dart';
+import 'package:ostadecommerce/features/products/presentation/screens/product_list_screen.dart';
 
 class ProductCategoryItem extends StatelessWidget {
   const ProductCategoryItem({
