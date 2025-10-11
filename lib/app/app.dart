@@ -12,8 +12,8 @@ import 'package:ostadecommerce/l10n/app_localizations.dart';
 class CraftyBay extends StatefulWidget {
   const CraftyBay({super.key});
 
+  static late GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static final LanguageController languageController = LanguageController();  // jate shobai use korte pare tai ekhane static kore create kore hoyeche
-
 
   @override
   State<CraftyBay> createState() => _CraftyBayState();
@@ -31,6 +31,7 @@ class _CraftyBayState extends State<CraftyBay> {
       init: CraftyBay.languageController,
       builder: (languageController) {
         return GetMaterialApp(
+          navigatorKey: CraftyBay.navigatorKey,
           localizationsDelegates: [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
