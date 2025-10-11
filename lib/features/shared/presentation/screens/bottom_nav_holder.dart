@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ostadecommerce/features/carts/presentation/screens/cart_screen.dart';
 import 'package:ostadecommerce/features/category/presentation/screens/category_list_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/screens/home_screen.dart';
-import 'package:ostadecommerce/features/home/presentation/screens/wish_list.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
+import 'package:ostadecommerce/features/wishlist/presentation/screens/wish_list_screen.dart';
 
 class BottomNavHolder extends StatefulWidget {
   const BottomNavHolder({super.key});
@@ -19,7 +20,7 @@ class _BottomNavHolderState extends State<BottomNavHolder> {
   final List<Widget> _screens = [
     HomeScreen(),
     CategoryListScreen(),
-    HomeScreen(),
+    CartScreen(),
     WishListScreen(),
   ];
   @override
