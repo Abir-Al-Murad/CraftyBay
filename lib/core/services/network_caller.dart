@@ -165,10 +165,10 @@ class NetworkCaller {
   }
 
   NetworkResponse _handleResponse(Response response, {bool isFromLogin = false}) {
+    final decodedJson = jsonDecode(response.body);
     try {
-      final decodedJson = jsonDecode(response.body);
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201)  {
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: true,
@@ -182,6 +182,7 @@ class NetworkCaller {
           statusCode: response.statusCode,
           isSuccess: false,
           errorMessage: _unAuthorizeMessage,
+          body: decodedJson,
         );
       } else {
         String errorMessage = decodedJson['message'] ??
@@ -192,6 +193,7 @@ class NetworkCaller {
           statusCode: response.statusCode,
           isSuccess: false,
           errorMessage: errorMessage,
+          body: decodedJson
         );
       }
     } catch (e) {
@@ -200,11 +202,12 @@ class NetworkCaller {
         statusCode: response.statusCode,
         isSuccess: false,
         errorMessage: _defaultErrorMessage,
+        body: decodedJson
       );
     }
   }
 
-  void _logRequest(String url, dynamic body, Map<String, String>? headers) {
+  void _logRequest(String url, Map<String,dynamic>? body, Map<String, String>? headers) {
     _logger.i("============REQUEST================\n"
         "URL : $url\n"
         "HEADERS : $headers\n"
