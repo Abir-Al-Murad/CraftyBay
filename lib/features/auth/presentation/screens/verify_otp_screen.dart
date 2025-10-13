@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ostadecommerce/app/controller/auth_controller.dart';
 import 'package:ostadecommerce/features/auth/data/models/verify_otp_request_model.dart';
 import 'package:ostadecommerce/features/auth/presentation/controllers/verify_otp_controller.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
+import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/snack_bar_message.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -90,6 +92,9 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
     if(isSuccess){
       // Cache user data
       //Navigate to home
+      
+      await Get.find<AuthController>().saveUserData(_verifyOtpController.userModel!, _verifyOtpController.accessToken!);
+      Navigator.pushNamedAndRemoveUntil(context, BottomNavHolder.name, (predicate)=>false);
     }else{
       showSnackBarMessage(context, _verifyOtpController.errorMessage!);
     }
