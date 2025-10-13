@@ -7,7 +7,7 @@ import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_h
 import 'package:ostadecommerce/features/wishlist/presentation/screens/wish_list_screen.dart';
 
 import '../features/auth/presentation/screens/sign_in_screen.dart';
-import '../features/auth/presentation/screens/verify_otp.dart';
+import '../features/auth/presentation/screens/verify_otp_screen.dart';
 
 MaterialPageRoute onGenerateRoute(RouteSettings settings){
   late Widget screen;
@@ -18,7 +18,8 @@ MaterialPageRoute onGenerateRoute(RouteSettings settings){
   }else if(settings.name == SignUpScreen.name){
     screen = SignUpScreen();
   }else if(settings.name == VerifyOtpScreen.name){
-    screen = VerifyOtpScreen();
+    final String email = settings.arguments as String;
+    screen = VerifyOtpScreen(email: email,);
   }else if(settings.name == BottomNavHolder.name){
     screen = BottomNavHolder();
   }else if(settings.name == ProductListScreen.name){

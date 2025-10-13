@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
 import 'package:ostadecommerce/features/auth/data/models/sign_up_request_model.dart';
 import 'package:ostadecommerce/features/auth/presentation/controllers/sign_up_controller.dart';
-import 'package:ostadecommerce/features/auth/presentation/screens/verify_otp.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/snack_bar_message.dart';
