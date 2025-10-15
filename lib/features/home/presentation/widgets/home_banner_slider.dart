@@ -2,12 +2,14 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
+import 'package:ostadecommerce/features/home/data/models/home_slider.dart';
 
 class HomeBannerSlider extends StatefulWidget {
   const HomeBannerSlider({
-    super.key,
+    super.key, required this.sliders,
   });
 
+  final List<HomeSlider> sliders;
   @override
   State<HomeBannerSlider> createState() => _HomeBannerSliderState();
 }
@@ -27,7 +29,7 @@ class _HomeBannerSliderState extends State<HomeBannerSlider> {
             _currentIndex.value = index;
             }
           ),
-          items: [1,2,3,4,5].map((i) {
+          items: widget.sliders.map((slider) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -36,9 +38,9 @@ class _HomeBannerSliderState extends State<HomeBannerSlider> {
                     decoration: BoxDecoration(
                       color: AppColors.themeColor,
                       borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(image: NetworkImage(slider.photoUrl),fit: BoxFit.cover)
                     ),
                     alignment: Alignment.center,
-                    child: Text('text $i', style: TextStyle(fontSize: 16.0),)
                 );
               },
             );
@@ -50,7 +52,7 @@ class _HomeBannerSliderState extends State<HomeBannerSlider> {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                for(int i =0;i<5;i++)
+                for(int i =0;i<widget.sliders.length;i++)
                   Container(
                     height: 12,
                     width: 12,

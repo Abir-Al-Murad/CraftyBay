@@ -3,10 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ostadecommerce/app/assests_paths.dart';
+import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/home_banner_slider.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/product_card.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/app_bar_icon_button.dart';
+import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/product_category_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 16),
               _buildSearchBar(),
               const SizedBox(height: 16),
-              HomeBannerSlider(),
+              GetBuilder<HomeSliderController>(
+                builder: (controller) {
+                  if(controller.getSliderInProgress){
+                    return SizedBox(
+                        height: 180,
+                        child: CenteredCirculerProgress());
+                  }
+                  return HomeBannerSlider(sliders: controller.sliders,);
+                }
+              ),
               const SizedBox(height: 16),
               _buildSelectionHeader(
                 title: 'Categories',

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ostadecommerce/app/controller/auth_controller.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
+import 'package:ostadecommerce/features/auth/data/models/login_request_model.dart';
+import 'package:ostadecommerce/features/auth/presentation/controllers/login_controller.dart';
 import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart' show AppLogo;
+import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
+import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
+import 'package:ostadecommerce/features/shared/presentation/widgets/snack_bar_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -15,6 +22,8 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
+
+  final LogInController _logInController = Get.find<LogInController>();
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -45,7 +54,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               const SizedBox(height: 16,),
-              FilledButton(onPressed: _onTapLoginButton, child: Text("Next")),
+              GetBuilder<LogInController>(
+                builder: (controller) {
+                  return Visibility(
+                      visible: controller.loginInProgress == false,
+                      replacement: CenteredCirculerProgress(),
+                      child: FilledButton(onPressed: _onTapLoginButton, child: Text("Next")));
+                }
+              ),
               const SizedBox(height: 16,),
               TextButton(onPressed: _onTapSignUpButton, child: Text("Sign up")),
             ],
@@ -55,7 +71,26 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void _onTapLoginButton(){}
+  void _onTapLoginButton(){
+    //TODO: Validate
+    _signIn();
+  }
+
+  Future<void> _signIn()async{
+    LoginRequestModel model = LoginRequestModel(email: _emailTEController.text.trim(), password: _passwordTEController.text);
+    bool isSuccess = await _logInController.logIn(model);
+    if(isSuccess){
+      // Cache user data
+      //Navigate to home
+
+      await Get.find<AuthController>().saveUserData(_logInController.userModel!, _logInController.accessToken!);
+      Navigator.pushNamedAndRemoveUntil(context, BottomNavHolder.name, (predicate)=>false);
+      print("I am Here");
+    }else{
+      showSnackBarMessage(context, _logInController.errorMessage!);
+    }
+  }
+
   void _onTapSignUpButton(){
     Navigator.pushNamed(context, SignUpScreen.name);
   }

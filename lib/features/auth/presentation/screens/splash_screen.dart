@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if(isUserLoggedIn){
       await Get.find<AuthController>().loadUserData();
     }
-    Navigator.pushReplacementNamed(context, SignUpScreen.name);
+    Navigator.pushReplacementNamed(context, BottomNavHolder.name);
   }
 
   @override
