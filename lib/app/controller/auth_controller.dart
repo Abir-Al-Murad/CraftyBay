@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ostadecommerce/features/auth/data/models/user_model.dart';
+import 'package:ostadecommerce/features/shared/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController{

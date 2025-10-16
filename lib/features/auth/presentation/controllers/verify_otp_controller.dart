@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:ostadecommerce/app/urls.dart';
 import 'package:ostadecommerce/core/models/network_response.dart';
 import 'package:ostadecommerce/core/services/network_caller.dart';
-import 'package:ostadecommerce/features/auth/data/models/user_model.dart';
+import 'package:ostadecommerce/features/shared/data/models/user_model.dart';
 import 'package:ostadecommerce/features/auth/data/models/verify_otp_request_model.dart';
 
 class VerifyOtpController extends GetxController{

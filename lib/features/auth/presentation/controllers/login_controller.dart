@@ -4,7 +4,7 @@ import 'package:ostadecommerce/core/models/network_response.dart';
 import 'package:ostadecommerce/core/services/network_caller.dart';
 import 'package:ostadecommerce/features/auth/data/models/login_request_model.dart';
 import 'package:ostadecommerce/features/auth/data/models/sign_up_request_model.dart';
-import 'package:ostadecommerce/features/auth/data/models/user_model.dart';
+import 'package:ostadecommerce/features/shared/data/models/user_model.dart';
 
 class LogInController extends GetxController{
   bool _loginInProgress = false;
