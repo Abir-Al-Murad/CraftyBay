@@ -4,6 +4,7 @@ import 'package:ostadecommerce/features/carts/presentation/screens/cart_screen.d
 import 'package:ostadecommerce/features/category/presentation/screens/category_list_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
 import 'package:ostadecommerce/features/home/presentation/screens/home_screen.dart';
+import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
 import 'package:ostadecommerce/features/wishlist/presentation/screens/wish_list_screen.dart';
 
@@ -28,6 +29,7 @@ class _BottomNavHolderState extends State<BottomNavHolder> {
   @override
   void initState() {
     Get.find<HomeSliderController>().getHomeSliders();
+    Get.find<CategoryController>().getCategoryList();
     super.initState();
   }
 

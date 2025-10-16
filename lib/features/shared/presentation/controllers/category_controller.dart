@@ -60,4 +60,10 @@ class CategoryController extends GetxController{
     return isSuccess;
 
   }
+
+
+  Future<void> refreshCategoryList()async{
+    _currentPage = 0;
+    getCategoryList();
+  }
 }

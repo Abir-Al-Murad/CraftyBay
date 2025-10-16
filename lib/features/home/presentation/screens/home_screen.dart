@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:ostadecommerce/app/assests_paths.dart';
 import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/home_banner_slider.dart';
+import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/product_card.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/app_bar_icon_button.dart';
@@ -76,17 +77,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCategoryList() {
     return SizedBox(
       height: 100,
-      child: ListView.separated(
-        itemCount: 10,
-        primary: false,
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return ProductCategoryItem();
-        },
-        separatorBuilder: (context, index) {
-          return SizedBox(width: 10);
-        },
+      child: GetBuilder<CategoryController>(
+        builder: (controller) {
+          if(controller.isInitialLoading){
+            return CenteredCirculerProgress();
+          }
+          return ListView.separated(
+            itemCount: controller.categoryList.length > 10 ?10:controller.categoryList.length,
+            primary: false,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return ProductCategoryItem(
+                categoryModel: controller.categoryList[index],
+              );
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(width: 10);
+            },
+          );
+        }
       ),
     );
   }
