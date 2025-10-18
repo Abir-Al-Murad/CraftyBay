@@ -7,7 +7,6 @@ import 'package:ostadecommerce/features/home/presentation/controllers/home_slide
 import 'package:ostadecommerce/features/home/presentation/widgets/home_banner_slider.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
-import 'package:ostadecommerce/features/shared/presentation/screens/product_card.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/app_bar_icon_button.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/product_category_item.dart';

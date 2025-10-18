@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ostadecommerce/features/shared/presentation/screens/product_card.dart';
 
 class WishListScreen extends StatefulWidget {
   const WishListScreen({super.key});

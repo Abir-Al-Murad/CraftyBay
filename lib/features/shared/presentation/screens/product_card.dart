@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
-import 'package:ostadecommerce/app/assests_paths.dart';
 import 'package:ostadecommerce/app/utils/constants.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_details_screen.dart';
 import 'package:ostadecommerce/features/shared/data/models/product_model.dart';
@@ -16,7 +15,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, ProductDetailsScreen.name);
+        Navigator.pushNamed(context, ProductDetailsScreen.name,arguments: productModel.id);
       },
       child: Card(
         color: Colors.white,

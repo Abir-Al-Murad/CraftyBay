@@ -5,9 +5,9 @@ import 'package:ostadecommerce/app/app_colors.dart';
 
 class ProductImageSlider extends StatefulWidget {
   const ProductImageSlider({
-    super.key,
+    super.key, required this.imageUrls,
   });
-
+  final List<String>imageUrls;
   @override
   State<ProductImageSlider> createState() => _ProductImageSliderState();
 }
@@ -26,14 +26,16 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
             _currentIndex.value = index;
             }
           ),
-          items: [1,2,3,4,5].map((i) {
+          items: widget.imageUrls.map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.grey.shade300,
                     alignment: Alignment.center,
-                    child: Text('text $i', style: TextStyle(fontSize: 16.0),)
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                      image: DecorationImage(image: NetworkImage(i),fit: BoxFit.scaleDown)
+                    ),
                 );
               },
             );
@@ -49,7 +51,7 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  for(int i =0;i<5;i++)
+                  for(int i =0;i<widget.imageUrls.length;i++)
                     Container(
                       height: 12,
                       width: 12,
