@@ -3,12 +3,15 @@ import 'package:ostadecommerce/app/app_colors.dart';
 import 'package:ostadecommerce/app/assests_paths.dart';
 import 'package:ostadecommerce/app/utils/constants.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_details_screen.dart';
+import 'package:ostadecommerce/features/shared/data/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.productModel
   });
 
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,10 +33,16 @@ class ProductCard extends StatelessWidget {
                         topLeft: Radius.circular(8),
                         topRight: Radius.circular(8))
                 ),
-                child: Image.asset(
-                  AssetPaths.dummyShoePng,
+                child: Image.network(
+                  productModel.photos.firstOrNull ?? '',
                   height: 80,
                   width: 140,
+                  errorBuilder: (_,__,___){
+                    return SizedBox(
+                        height: 80,
+                        width: 140,
+                        child: Icon(Icons.error_outline,size: 48,color: Colors.green,));
+                  },
                 ),
               ),
               Padding(
@@ -42,7 +51,7 @@ class ProductCard extends StatelessWidget {
                   spacing: 4,
                   children: [
                     Text(
-                      'Nike Air Jordan A45GH',
+                      productModel.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -50,7 +59,7 @@ class ProductCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${takaSign}120",
+                          "${takaSign}${productModel.currentPrice}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: AppColors.themeColor,
@@ -63,7 +72,7 @@ class ProductCard extends StatelessWidget {
                               size: 18,
                               color: Colors.amber,
                             ),
-                            Text('4.2'),
+                            Text(productModel.rating.toString()),
                           ],
                         ),
                         Card(

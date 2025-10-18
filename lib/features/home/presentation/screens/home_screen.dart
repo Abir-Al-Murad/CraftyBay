@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _buildCategoryList(),
               _buildSelectionHeader(title: 'New', onTap: () {}),
               _buildNewProductList(),
-              _buildSelectionHeader(title: 'New', onTap: () {}),
+              _buildSelectionHeader(title: 'Special', onTap: () {}),
               _buildSpecialProductList(),
               _buildSelectionHeader(title: 'Popular', onTap: () {}),
               _buildPopularProductList(),
@@ -134,11 +134,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          1,2,3,4,5
-        ].map((e){
-          return ProductCard();
-        }).toList(),
+        // children: [
+        //   1,2,3,4,5
+        // ].map((e){
+        //   return ProductCard();
+        // }).toList(),
       ),
     );
   }
@@ -147,11 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
       scrollDirection: Axis.horizontal,
 
       child: Row(
-        children: [
-          1,2,3,4,5
-        ].map((e){
-          return ProductCard();
-        }).toList(),
+        // children: [
+        //   1,2,3,4,5
+        // ].map((e){
+        //   return ProductCard();
+        // }).toList(),
       ),
     );
   }
@@ -160,11 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
       scrollDirection: Axis.horizontal,
 
       child: Row(
-        children: [
-          1,2,3,4,5
-        ].map((e){
-          return ProductCard();
-        }).toList(),
+        // children: [
+        //   1,2,3,4,5
+        // ].map((e){
+        //   return ProductCard();
+        // }).toList(),
       ),
     );
   }

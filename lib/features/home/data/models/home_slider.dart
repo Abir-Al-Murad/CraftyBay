@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 class HomeSlider {
   final String id;
@@ -15,7 +14,7 @@ class HomeSlider {
 
   factory HomeSlider.fromJson(Map<String, dynamic> jsonData) {
     return HomeSlider(
-      id: jsonData['id'],
+      id: jsonData['_id'],
       photoUrl: jsonData['photo_url'],
       description: jsonData['description'],
       brandId: jsonData['brand'],

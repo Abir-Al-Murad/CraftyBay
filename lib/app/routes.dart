@@ -3,6 +3,7 @@ import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen
 import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_details_screen.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_list_screen.dart';
+import 'package:ostadecommerce/features/shared/data/models/catetgory_model.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 import 'package:ostadecommerce/features/wishlist/presentation/screens/wish_list_screen.dart';
 
@@ -23,8 +24,8 @@ MaterialPageRoute onGenerateRoute(RouteSettings settings){
   }else if(settings.name == BottomNavHolder.name){
     screen = BottomNavHolder();
   }else if(settings.name == ProductListScreen.name){
-    final String category = settings.arguments as String;
-    screen = ProductListScreen(categoryName: category);
+    final CategoryModel category = settings.arguments as CategoryModel;
+    screen = ProductListScreen(categoryModel: category,);
   }else if(settings.name == WishListScreen.name){
     screen = WishListScreen();
   }else if(settings.name == ProductDetailsScreen.name){
