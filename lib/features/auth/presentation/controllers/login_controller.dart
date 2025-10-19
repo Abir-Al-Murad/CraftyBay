@@ -25,7 +25,7 @@ class LogInController extends GetxController{
     if(response.isSuccess){
       _errorMessage = null;
       _userModel = UserModel.fromJson(response.body!['data']['user']);
-      _accessToken = response.body!['user']['token'];
+      _accessToken = response.body!['data']['token'];
       isSuccess = true;
     }else{
       _errorMessage = response.body?['msg']??response.errorMessage;

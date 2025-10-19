@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ostadecommerce/app/app_colors.dart';
 import 'package:ostadecommerce/app/utils/constants.dart';
+import 'package:ostadecommerce/features/carts/presentation/controllers/cart_list_controllers.dart';
 
-class TotalPriceAndCheckoutSection extends StatelessWidget {
+class TotalPriceAndCheckoutSection extends StatefulWidget {
   const TotalPriceAndCheckoutSection({
     super.key,
   });
 
+  @override
+  State<TotalPriceAndCheckoutSection> createState() => _TotalPriceAndCheckoutSectionState();
+}
 
+class _TotalPriceAndCheckoutSectionState extends State<TotalPriceAndCheckoutSection> {
+
+  final CartListControllers _cartListControllers = Get.find<CartListControllers>();
   @override
   Widget build(BuildContext context) {
     final TextTheme theme = Theme.of(context).textTheme;
@@ -29,9 +37,13 @@ class TotalPriceAndCheckoutSection extends StatelessWidget {
               Text("Price",style: TextStyle(
                   color: Colors.black,fontWeight: FontWeight.w600
               ),),
-              Text("${takaSign}100",style: theme.titleMedium?.copyWith(
-                  color: AppColors.themeColor
-              ),),
+              GetBuilder<CartListControllers>(
+                builder: (controller) {
+                  return Text("$takaSign${controller.totalPrice}",style: theme.titleMedium?.copyWith(
+                      color: AppColors.themeColor
+                  ),);
+                }
+              ),
             ],
           ),
           SizedBox(

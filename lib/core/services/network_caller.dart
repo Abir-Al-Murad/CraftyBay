@@ -13,7 +13,7 @@ class NetworkCaller {
   final String _unAuthorizeMessage = "Session expired. Please login again.";
 
   final VoidCallback onUnAuthorize;
-  final String accessToken;
+  final String Function() accessToken;
   final Logger _logger = Logger();
 
   NetworkCaller({required this.onUnAuthorize,required this.accessToken});
@@ -23,7 +23,7 @@ class NetworkCaller {
     try {
       Uri uri = Uri.parse(url);
       final Map<String, String> headers = {
-        'token': accessToken ?? "",
+        'token': accessToken(),
         'Content-type': 'application/json',
       };
       _logRequest(url, null, headers);
@@ -51,7 +51,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       final Map<String, String> headers = {
         'Content-type': 'application/json',
-        'token': accessToken ?? '',
+        'token': accessToken(),
       };
       _logRequest(url, body, headers);
 
@@ -82,7 +82,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       final Map<String, String> headers = {
         'Content-type': 'application/json',
-        'token': accessToken ?? '',
+        'token': accessToken(),
       };
       _logRequest(url, body, headers);
 
@@ -112,7 +112,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       final Map<String, String> headers = {
         'Content-type': 'application/json',
-        'token': accessToken ?? '',
+        'token': accessToken(),
       };
       _logRequest(url, body, headers);
 
@@ -142,7 +142,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       final Map<String, String> headers = {
         'Content-type': 'application/json',
-        'token': accessToken ?? '',
+        'token': accessToken(),
       };
       _logRequest(url, body, headers);
 

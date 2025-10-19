@@ -4,6 +4,7 @@ import 'package:ostadecommerce/app/set_up_network_client.dart';
 import 'package:ostadecommerce/features/auth/presentation/controllers/login_controller.dart';
 import 'package:ostadecommerce/features/auth/presentation/controllers/sign_up_controller.dart';
 import 'package:ostadecommerce/features/auth/presentation/controllers/verify_otp_controller.dart';
+import 'package:ostadecommerce/features/carts/presentation/controllers/cart_list_controllers.dart';
 import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
 import 'package:ostadecommerce/features/products/presentation/controllers/product_details_controller.dart';
 import 'package:ostadecommerce/features/products/presentation/controllers/product_list_controller.dart';
@@ -23,5 +24,6 @@ class ControllerBinding extends Bindings{
     Get.put(CategoryController());
     Get.put(ProductListController());
     Get.put(ProductDetailsController());
+    Get.put(CartListControllers());
   }
 }

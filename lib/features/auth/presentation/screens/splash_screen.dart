@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ostadecommerce/app/controller/auth_controller.dart';
 import 'package:ostadecommerce/app/extentions/localization_extension.dart';
 import 'package:ostadecommerce/app/utils/app_version_service.dart';
+import 'package:ostadecommerce/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/app_logo.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 
