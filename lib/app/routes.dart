@@ -3,6 +3,8 @@ import 'package:ostadecommerce/features/auth/presentation/screens/sign_up_screen
 import 'package:ostadecommerce/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_details_screen.dart';
 import 'package:ostadecommerce/features/products/presentation/screens/product_list_screen.dart';
+import 'package:ostadecommerce/features/review/presentation/screens/add_review_screen.dart';
+import 'package:ostadecommerce/features/review/presentation/screens/review_list_screen.dart';
 import 'package:ostadecommerce/features/shared/data/models/catetgory_model.dart';
 import 'package:ostadecommerce/features/shared/presentation/screens/bottom_nav_holder.dart';
 import 'package:ostadecommerce/features/wishlist/presentation/screens/wish_list_screen.dart';
@@ -31,6 +33,12 @@ MaterialPageRoute onGenerateRoute(RouteSettings settings){
   }else if(settings.name == ProductDetailsScreen.name){
     final String productId = settings.arguments as String;
     screen = ProductDetailsScreen(productId: productId,);
+  }else if(settings.name == ReviewListScreen.name){
+    final String productId = settings.arguments as String;
+    screen = ReviewListScreen(productId: productId,);
+  }else if(settings.name == AddReviewScreen.name){
+    final String productId = settings.arguments as String;
+    screen = AddReviewScreen(productId: productId,);
   }
 
   return MaterialPageRoute(builder: (ctx)=>screen);

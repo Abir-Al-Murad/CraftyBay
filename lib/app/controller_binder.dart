@@ -6,8 +6,11 @@ import 'package:ostadecommerce/features/auth/presentation/controllers/sign_up_co
 import 'package:ostadecommerce/features/auth/presentation/controllers/verify_otp_controller.dart';
 import 'package:ostadecommerce/features/carts/presentation/controllers/cart_list_controllers.dart';
 import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
+import 'package:ostadecommerce/features/home/presentation/controllers/product_list_by_tag_controller.dart';
 import 'package:ostadecommerce/features/products/presentation/controllers/product_details_controller.dart';
 import 'package:ostadecommerce/features/products/presentation/controllers/product_list_controller.dart';
+import 'package:ostadecommerce/features/review/presentation/controllers/review_list_controller.dart';
+import 'package:ostadecommerce/features/review/presentation/screens/add_review_screen.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
 
@@ -25,5 +28,7 @@ class ControllerBinding extends Bindings{
     Get.put(ProductListController());
     Get.put(ProductDetailsController());
     Get.put(CartListControllers());
+    Get.put(ReviewListController());
+    Get.put(ProductListByTagController());
   }
 }

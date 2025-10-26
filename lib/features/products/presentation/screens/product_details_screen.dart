@@ -6,6 +6,7 @@ import 'package:ostadecommerce/features/products/presentation/widgets/color_pick
 import 'package:ostadecommerce/features/products/presentation/widgets/product_image_slider.dart';
 import 'package:ostadecommerce/features/products/presentation/widgets/size_picker.dart';
 import 'package:ostadecommerce/features/products/presentation/widgets/total_price_and_cart_section.dart';
+import 'package:ostadecommerce/features/review/presentation/screens/review_list_screen.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/increment_decrement_button.dart';
 
@@ -88,7 +89,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                             ],
                                           ),
                                           TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Navigator.pushNamed(context, ReviewListScreen.name,arguments: _productDetailsController.productDetailsModel!.id);
+                                            },
                                             child: Text("Reviews"),
                                           ),
                                           Card(

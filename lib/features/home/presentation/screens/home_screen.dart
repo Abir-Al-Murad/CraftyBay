@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ostadecommerce/app/assests_paths.dart';
 import 'package:ostadecommerce/features/home/presentation/controllers/home_slides_controller.dart';
+import 'package:ostadecommerce/features/home/presentation/controllers/product_list_by_tag_controller.dart';
 import 'package:ostadecommerce/features/home/presentation/widgets/home_banner_slider.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
+import 'package:ostadecommerce/features/shared/presentation/screens/product_card.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/app_bar_icon_button.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/product_category_item.dart';
@@ -19,6 +21,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final ProductListByTagController _productListByTagController = Get.find<ProductListByTagController>();
+  @override
+  void initState() {
+      _productListByTagController.getProductListByTag("new");
+      super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,18 +137,35 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 
-  Widget _buildNewProductList(){
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        // children: [
-        //   1,2,3,4,5
-        // ].map((e){
-        //   return ProductCard();
-        // }).toList(),
+  Widget _buildNewProductList() {
+    return SizedBox(
+      height: 200,
+      child: GetBuilder<ProductListByTagController>(
+        builder: (controller) {
+          if (controller.inProgress) {
+            return const CenteredCirculerProgress();
+          }
+
+          if (controller.productList.isEmpty) {
+            return const Center(child: Text('No new products found.'));
+          }
+
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: controller.productList.length,
+            itemBuilder: (context, index) {
+              final product = controller.productList[index];
+              return Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: ProductCard(productModel: product),
+              );
+            },
+          );
+        },
       ),
     );
   }
+
   Widget _buildPopularProductList(){
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
