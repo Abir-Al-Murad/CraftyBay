@@ -67,7 +67,6 @@ class _TotalPriceAndCartSectionState extends State<TotalPriceAndCartSection> {
 
 
   Future<void> onTapAddToCardButton()async{
-    print('clicked');
     if(await Get.find<AuthController>().isUserAlreadyLoggedIn()){
       final bool isSuccess = await _addToCartController.addToCart(widget.productDetailsModel.id);
       if(isSuccess){

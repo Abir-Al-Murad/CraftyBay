@@ -37,34 +37,43 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: Text('Cart'),
       ),
-      body: GetBuilder(
-        init: _cartListControllers,
-        builder: (controller) {
-
-          if(controller.inProgree){
-            return CircularProgressIndicator();
-          }else if(controller.errorMessage !=null){
-            return Center(child: Text(controller.errorMessage!),);
-          }
-          return Column(
-            children: [
-              Expanded(child: ListView.separated(
+      body:GetBuilder(
+      init: _cartListControllers,
+      builder: (controller) {
+        return Column(
+          children: [
+            if (controller.inProgree)
+              Expanded(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            else if (controller.errorMessage != null)
+              Expanded(
+                child: Center(
+                  child: Text(controller.errorMessage!),
+                ),
+              )
+            else
+              Expanded(
+                child: ListView.separated(
                   itemCount: controller.cartItemModel.length,
-                  itemBuilder: (context,index){
-                return CartItem(
-                  cartItemModel: controller.cartItemModel[index],
-                );
-              }, separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                      height: 8,
+                  itemBuilder: (context, index) {
+                    return CartItem(
+                      cartItemModel: controller.cartItemModel[index],
                     );
-              },)),
-              TotalPriceAndCheckoutSection(),
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(height: 8);
+                  },
+                ),
+              ),
+            TotalPriceAndCheckoutSection(),
+          ],
+        );
+      },
+    ),
 
-            ],
-          );
-        }
-      ),
     );
   }
 }

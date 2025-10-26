@@ -149,7 +149,6 @@ class NetworkCaller {
       Response response = await delete(
         uri,
         headers: headers,
-        body: jsonEncode(body),
       );
       _logResponse(url, response);
 
