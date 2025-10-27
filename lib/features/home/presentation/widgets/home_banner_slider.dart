@@ -24,6 +24,7 @@ class _HomeBannerSliderState extends State<HomeBannerSlider> {
         CarouselSlider(
           options: CarouselOptions(height: 180.0,
               aspectRatio: 1,
+              autoPlay: true,
               viewportFraction: 1,
             onPageChanged: (int index,CarouselPageChangedReason reason){
             _currentIndex.value = index;

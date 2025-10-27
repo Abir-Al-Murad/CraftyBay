@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:ostadecommerce/app/urls.dart';
 import 'package:ostadecommerce/core/models/network_response.dart';
 import 'package:ostadecommerce/core/services/network_caller.dart';
-import 'package:ostadecommerce/features/shared/data/models/product_details_model.dart';
 
 class AddToCartController extends GetxController{
   bool _addToCartInProgress = false;

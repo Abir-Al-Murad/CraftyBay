@@ -8,7 +8,9 @@ class Urls{
   static String productListUrl(int pageSize,int pageNo,String categoryId) => '$_baseUrl/products?count=$pageSize&page=$pageNo&category=$categoryId';
   static String reviewListUrl(int pageSize,int pageNo,String productId) => '$_baseUrl/reviews?count=$pageSize&page=$pageNo&product=$productId';
   static String prouductDetailsUrl(String productId)=> '$_baseUrl/product/id/$productId';
+  static String deleteWishItemUrl(String wishId)=> '$_baseUrl/wishlist/$wishId';
   static const String addToCartUrl= '$_baseUrl/cart';
+  static const String wishListUrl= '$_baseUrl/wishlist';
   static const String cartListUrl= '$_baseUrl/cart';
   static const String addReviewUrl= '$_baseUrl/review';
   static String deleteCartItemUrl(String cartItemId)=> '$_baseUrl/cart/$cartItemId';

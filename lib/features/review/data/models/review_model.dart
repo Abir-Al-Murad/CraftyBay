@@ -24,7 +24,7 @@ class ReviewModel {
       lastName: jsonData['user']['last_name'],
       comment: jsonData['comment'],
       id: jsonData['user']['_id'],
-      rating: (jsonData['rating'] as num).toInt(),
+      rating: (jsonData['rating'] ?? 0).toInt(),
       productId: jsonData['product']['_id'],
     );
   }

@@ -7,8 +7,10 @@ import 'package:ostadecommerce/features/products/presentation/widgets/product_im
 import 'package:ostadecommerce/features/products/presentation/widgets/size_picker.dart';
 import 'package:ostadecommerce/features/products/presentation/widgets/total_price_and_cart_section.dart';
 import 'package:ostadecommerce/features/review/presentation/screens/review_list_screen.dart';
+import 'package:ostadecommerce/features/shared/presentation/controllers/wish_list_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/centered_circuler_progress.dart';
 import 'package:ostadecommerce/features/shared/presentation/widgets/increment_decrement_button.dart';
+import 'package:ostadecommerce/features/shared/presentation/widgets/snack_bar_message.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key,required this.productId});
@@ -22,6 +24,7 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   final ProductDetailsController _productDetailsController = Get.find<ProductDetailsController>();
+  final WishListController _wishListController = Get.find<WishListController>();
 
   @override
   void initState() {
@@ -94,17 +97,27 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                             },
                                             child: Text("Reviews"),
                                           ),
-                                          Card(
-                                            color: AppColors.themeColor,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(4),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(2),
-                                              child: Icon(
-                                                Icons.favorite_outline,
-                                                size: 24,
-                                                color: Colors.white,
+                                          GestureDetector(
+                                            onTap: () async {
+                                              bool isSuccess = await _wishListController.addToWishList(controller.productDetailsModel!.id);
+                                              if(isSuccess){
+                                                showSnackBarMessage(context, "Added to WishList");
+                                              }else{
+                                                showSnackBarMessage(context, _wishListController.errorMessage!);
+                                              }
+                                            },
+                                            child: Card(
+                                              color: AppColors.themeColor,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(4),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(2),
+                                                child: Icon(
+                                                  Icons.favorite_outline,
+                                                  size: 24,
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                             ),
                                           ),

@@ -184,7 +184,7 @@ class NetworkCaller {
           body: decodedJson,
         );
       } else {
-        String errorMessage = decodedJson['message'] ??
+        String errorMessage = decodedJson['msg'] ??
             decodedJson['error'] ??
             decodedJson['data'] ??
             _defaultErrorMessage;

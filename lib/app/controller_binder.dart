@@ -13,6 +13,7 @@ import 'package:ostadecommerce/features/review/presentation/controllers/review_l
 import 'package:ostadecommerce/features/review/presentation/screens/add_review_screen.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/category_controller.dart';
 import 'package:ostadecommerce/features/shared/presentation/controllers/main_nav_controller.dart';
+import 'package:ostadecommerce/features/shared/presentation/controllers/wish_list_controller.dart';
 
 class ControllerBinding extends Bindings{
   @override
@@ -30,5 +31,6 @@ class ControllerBinding extends Bindings{
     Get.put(CartListControllers());
     Get.put(ReviewListController());
     Get.put(ProductListByTagController());
+    Get.put(WishListController());
   }
 }
